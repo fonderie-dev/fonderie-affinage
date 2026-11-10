@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+/build/
+/dist/
+.venv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+
+# Model weights and checkpoints (see CONTRIBUTING: weights are artefacts, not source)
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.gguf
+*.onnx
+*.pkl
+/checkpoints/
+/models/
+
+# Data and run outputs
+/data/
+/runs/
+/outputs/
+wandb/
+mlruns/
+lightning_logs/
+
+# Caches, secrets, OS
+.cache/
+.env
+.DS_Store

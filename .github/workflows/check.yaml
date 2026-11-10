@@ -1,0 +1,13 @@
+name: Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  python:
+    uses: fonderie-dev/.github/.github/workflows/python-check.yaml@main
