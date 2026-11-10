@@ -1,0 +1,11 @@
+{{- /* Previous and next page in menu order, with the home page first. */ -}}
+{{ $all := slice site.Home }}
+{{ range site.Menus.main }}{{ with .Page }}{{ $all = $all | append . }}{{ end }}{{ end }}
+{{ $idx := -1 }}
+{{ range $i, $p := $all }}{{ if eq $p $ }}{{ $idx = $i }}{{ end }}{{ end }}
+{{ if ge $idx 0 }}
+<nav class="pager" aria-label="Other pages">
+  {{ if gt $idx 0 }}{{ with index $all (sub $idx 1) }}<a class="prev" href="{{ .RelPermalink }}"><span>Previous</span>← {{ if .IsHome }}Overview{{ else }}{{ .Title }}{{ end }}</a>{{ end }}{{ end }}
+  {{ if lt (add $idx 1) (len $all) }}{{ with index $all (add $idx 1) }}<a class="next" href="{{ .RelPermalink }}"><span>Next</span>{{ .Title }} →</a>{{ end }}{{ end }}
+</nav>
+{{ end }}

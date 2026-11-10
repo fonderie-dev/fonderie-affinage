@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="t">
+  <title id="t">Fonderie</title>
+  <rect width="128" height="128" rx="26" fill="#1c1916"/>
+  <!-- crucible, tilted to pour -->
+  <g transform="rotate(34 46 44)">
+    <path d="M25 26 H67 L61 54 Q59.5 61 52 61 H40 Q32.5 61 31 54 Z" fill="#ced4da"/>
+    <rect x="21" y="21" width="50" height="7" rx="3.5" fill="#f1f3f5"/>
+    <ellipse cx="46" cy="27.5" rx="19" ry="2.4" fill="#ff922b"/>
+  </g>
+  <!-- molten stream -->
+  <path d="M73.5 42 C75.5 54 78 66 77.5 83 H82.5 C83 66 80 53 77 41 Z" fill="#fd7e14"/>
+  <!-- ingot mould read as a weight matrix -->
+  <rect x="36" y="82" width="72" height="30" rx="6" fill="#3b342e"/>
+  <rect x="42" y="87" width="12" height="8" rx="2" fill="#ffd8a8"/>
+  <rect x="57" y="87" width="12" height="8" rx="2" fill="#e8590c"/>
+  <rect x="72" y="87" width="12" height="8" rx="2" fill="#fd7e14"/>
+  <rect x="87" y="87" width="12" height="8" rx="2" fill="#ffa94d"/>
+  <rect x="42" y="99" width="12" height="8" rx="2" fill="#ff922b"/>
+  <rect x="57" y="99" width="12" height="8" rx="2" fill="#ffe8cc"/>
+  <rect x="72" y="99" width="12" height="8" rx="2" fill="#d9480f"/>
+  <rect x="87" y="99" width="12" height="8" rx="2" fill="#ffc078"/>
+</svg>

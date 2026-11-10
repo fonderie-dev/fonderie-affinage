@@ -1,0 +1,5 @@
+{{- $s := int (or . 0) -}}
+{{- $labels := slice "scaffold" "draft" "usable" "released" -}}
+{{- $dots := "" -}}
+{{- range seq 3 -}}{{- $dots = printf "%s%s" $dots (cond (le . $s) "●" "○") -}}{{- end -}}
+<span class="stamp stamp-{{ $s }}"><span class="dots" aria-hidden="true">{{ $dots }}</span><span class="visually-hidden">Status: </span>{{ index $labels $s }}</span>

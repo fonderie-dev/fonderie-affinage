@@ -1,0 +1,12 @@
+# Affinage: status line, scope and milestones. Keep in step with the README.
+state: "Scaffold. The package installs and its smoke test passes; none of the scope below is implemented yet. This site is an outline of what Affinage will document, and every detailed section is marked *coming soon*."
+scope:
+  - "Configuration-driven training and fine-tuning runs of open-weight models, full and parameter-efficient (for example LoRA), from a base model pinned to a commit hash."
+  - "Data preparation with a manifest and checksums, and a recorded split that [Essai](https://fonderie-dev.github.io/fonderie-essai/) can check for train–test overlap."
+  - "A [run record](https://fonderie-dev.github.io/website/methode/#the-run-record) written next to every output."
+  - "Export of the result as a customised local model: merged `safetensors` weights, an adapter, or a quantised file for a local runtime, each with a model card."
+out_of_scope: "Hosted training services; weight inspection and surgery ([Burin](https://fonderie-dev.github.io/fonderie-burin/)); benchmark evaluation ([Essai](https://fonderie-dev.github.io/fonderie-essai/))."
+milestones:
+  - "Run-record schema and writer, shared in form with Essai."
+  - "A fine-tuning run on a tiny model and synthetic data that completes on CPU inside the test suite."
+  - "Export with a generated model card."

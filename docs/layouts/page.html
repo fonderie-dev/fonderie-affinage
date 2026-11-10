@@ -1,0 +1,31 @@
+{{ define "main" }}
+{{ $a := partialCached "atelier.html" site.Params.slug site.Params.slug }}
+{{ if .Params.outline }}
+<article class="wrap page atelier">
+  <header class="page-head">
+    <p class="eyebrow"><a href="{{ "" | relURL }}">{{ $a.name }}</a> · {{ .Title }}</p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.lede }}<p class="lede">{{ . }}</p>{{ end }}
+    <p class="notice"><span class="notice-label">À venir</span> This page is an outline. Each section below keeps its <em>coming soon</em> stamp until it describes code that exists in the repository.</p>
+  </header>
+  <div class="atelier-grid">
+    <div class="prose">
+      {{ with .Content }}<div class="now">{{ . }}</div>{{ end }}
+      <h2 class="outline-title">{{ .Params.outlineTitle | default "Planned sections" }}</h2>
+      {{ partial "outline.html" . }}
+    </div>
+    {{ partial "facts.html" . }}
+  </div>
+  {{ partial "pager.html" . }}
+</article>
+{{ else }}
+<article class="wrap page">
+  <header class="page-head">
+    <p class="eyebrow"><a href="{{ "" | relURL }}">{{ $a.name }}</a></p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.lede }}<p class="lede">{{ . }}</p>{{ end }}
+  </header>
+  <div class="prose">{{ .Content }}</div>
+</article>
+{{ end }}
+{{ end }}

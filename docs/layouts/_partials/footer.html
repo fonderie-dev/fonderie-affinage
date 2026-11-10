@@ -1,0 +1,20 @@
+{{ $a := partialCached "atelier.html" site.Params.slug site.Params.slug }}
+<footer class="site-footer">
+  <div class="wrap">
+    {{ partial "ingot.html" . }}
+    <div class="foot-grid">
+      <div>
+        <p class="foot-name">{{ $a.name }} <span class="foot-org">· Fonderie</span></p>
+        <p class="foot-tag">{{ $a.summary }}</p>
+      </div>
+      <nav class="foot-nav" aria-label="Footer">
+        {{ range site.Menus.main }}<a href="{{ .URL }}">{{ .Name }}</a>{{ end }}
+        <a href="{{ site.Params.fonderie }}">Fonderie</a>
+        <a href="https://github.com/{{ $a.repo }}" rel="noopener">GitHub</a>
+        <a href="{{ "impressum/" | relURL }}">Impressum</a>
+        <a href="{{ "datenschutz/" | relURL }}">Datenschutz</a>
+      </nav>
+    </div>
+    <p class="fine">© {{ site.Params.since }}{{ if gt now.Year site.Params.since }}–{{ now.Year }}{{ end }} {{ site.Params.author }} · Code under Apache-2.0 · Static site: no cookies; self-hosted, cookie-free statistics with Plausible.</p>
+  </div>
+</footer>

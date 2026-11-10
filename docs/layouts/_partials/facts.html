@@ -1,0 +1,11 @@
+{{ $a := partialCached "atelier.html" site.Params.slug site.Params.slug }}
+<aside class="facts" aria-label="Facts">
+  <dl>
+    <dt>Status</dt><dd>{{ partial "stamp.html" $a.status }}</dd>
+    <dt>Release</dt><dd>None yet · {{ partial "soon.html" . }}</dd>
+    <dt>Repository</dt><dd><a href="https://github.com/{{ $a.repo }}" rel="noopener"><code>{{ $a.repo }}</code></a></dd>
+    <dt>Language</dt><dd>Python ≥ 3.11</dd>
+    <dt>Licence</dt><dd>Apache-2.0</dd>
+    <dt>Part of</dt><dd><a href="{{ site.Params.fonderie }}">Fonderie</a>, atelier {{ printf "%02d" $a.number }}</dd>
+  </dl>
+</aside>

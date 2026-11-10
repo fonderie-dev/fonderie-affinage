@@ -1,0 +1,29 @@
+# The three ateliers, in chain order. Identical in every atelier's docs/data/.
+# Keep status in step with each repository README and with the website.
+- slug: affinage
+  number: 1
+  name: Affinage
+  gloss: refining
+  repo: fonderie-dev/fonderie-affinage
+  url: https://fonderie-dev.github.io/fonderie-affinage/
+  status: 0
+  summary: Training and fine-tuning open models on domain data, packaged as customised local models.
+  etymology: "Affinage is the refining of molten metal: removing impurities until it reaches a specified composition."
+- slug: burin
+  number: 2
+  name: Burin
+  gloss: engraving
+  repo: fonderie-dev/fonderie-burin
+  url: https://fonderie-dev.github.io/fonderie-burin/
+  status: 0
+  summary: Inspecting and editing the weights of open models.
+  etymology: "A burin is the engraver's chisel, used to cut fine lines into finished metal."
+- slug: essai
+  number: 3
+  name: Essai
+  gloss: assay
+  repo: fonderie-dev/fonderie-essai
+  url: https://fonderie-dev.github.io/fonderie-essai/
+  status: 0
+  summary: Reproducible evaluation of models on scientific tasks.
+  etymology: "An essai is the assay: the test that establishes what a casting actually contains."

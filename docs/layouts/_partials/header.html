@@ -1,0 +1,17 @@
+{{ $a := partialCached "atelier.html" site.Params.slug site.Params.slug }}
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="{{ "" | relURL }}">
+      <img src="{{ "images/fonderie.svg" | relURL }}" alt="" width="32" height="32">
+      <span><span class="brand-org">Fonderie</span><span class="brand-sep" aria-hidden="true">/</span>{{ $a.name }}</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      {{ $current := . }}
+      {{ range site.Menus.main }}
+        <a href="{{ .URL }}"{{ if $current.IsMenuCurrent "main" . }} aria-current="page"{{ end }}>{{ .Name }}</a>
+      {{ end }}
+      <a href="{{ site.Params.fonderie }}">Fonderie&nbsp;↗</a>
+      <a href="https://github.com/{{ $a.repo }}" rel="noopener">GitHub&nbsp;↗</a>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,2 @@
+{{- /* The entry for this site's atelier in data/ateliers.yaml. Call with site.Params.slug. */ -}}
+{{- return index (where hugo.Data.ateliers "slug" .) 0 -}}

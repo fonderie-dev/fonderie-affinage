@@ -1,0 +1,15 @@
+{{- /* Planned sections of a page, from its front matter `outline`. Each is stamped coming soon. */ -}}
+{{ with .Params.outline }}
+<ol class="outline">
+  {{ range $i, $o := . }}
+  <li id="{{ $o.id }}">
+    <span class="outline-num" aria-hidden="true">{{ printf "%02d" (add $i 1) }}</span>
+    <div class="outline-head">
+      <h3>{{ $o.title }}</h3>
+      {{ partial "soon.html" . }}
+    </div>
+    <p>{{ $o.text | markdownify }}</p>
+  </li>
+  {{ end }}
+</ol>
+{{ end }}

@@ -1,0 +1,25 @@
+{{ $a := partialCached "atelier.html" site.Params.slug site.Params.slug }}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{{ $title := cond .IsHome (printf "%s · Fonderie" $a.name) (printf "%s · %s · Fonderie" .Title $a.name) }}
+{{ $desc := or .Description .Params.summary site.Params.description }}
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $desc }}">
+<meta name="author" content="{{ site.Params.author }}">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5efe6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141210" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="{{ .Permalink }}">
+<link rel="icon" href="{{ "images/fonderie.svg" | relURL }}" type="image/svg+xml">
+<link rel="icon" href="{{ "images/favicon-32.png" | relURL }}" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="{{ "images/apple-touch-icon.png" | relURL }}">
+<meta property="og:site_name" content="{{ $a.name }} · Fonderie">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="{{ "images/fonderie-512.png" | absURL }}">
+<script defer data-domain="{{ site.Params.analyticsDomain }}" src="https://analytics.hellebo.de/js/script.file-downloads.outbound-links.js"></script>
+{{ with resources.Get "css/main.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+{{ end }}

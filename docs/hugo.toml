@@ -1,0 +1,32 @@
+baseURL = "https://fonderie-dev.github.io/fonderie-affinage/"
+locale = "en"
+defaultContentLanguage = "en"
+title = "Affinage"
+disableKinds = ["taxonomy", "term", "rss"]
+enableRobotsTXT = true
+
+[params]
+  slug = "affinage"
+  author = "R. Heller"
+  since = 2026
+  description = "Affinage, a Fonderie atelier: training and fine-tuning open models on domain data, packaged as customised local models."
+  fonderie = "https://fonderie-dev.github.io/website/"
+  analyticsDomain = "fonderie-dev.github.io/fonderie-affinage"
+
+[[menus.main]]
+  name = "Guide"
+  pageRef = "/guide"
+  weight = 1
+
+[[menus.main]]
+  name = "Référence"
+  pageRef = "/reference"
+  weight = 2
+
+[[menus.main]]
+  name = "Journal"
+  pageRef = "/journal"
+  weight = 3
+
+[markup.highlight]
+  noClasses = false

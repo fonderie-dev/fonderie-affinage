@@ -1,0 +1,68 @@
+{{ define "main" }}
+{{ $a := partialCached "atelier.html" site.Params.slug site.Params.slug }}
+{{ $r := hugo.Data.repo }}
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <p class="eyebrow"><a href="{{ site.Params.fonderie }}">Fonderie</a> · Atelier {{ printf "%02d" $a.number }}</p>
+      <h1>{{ $a.name }} <span class="gloss">{{ $a.gloss }}</span></h1>
+      <p class="tagline">{{ $a.summary }}</p>
+      <p class="etymology">{{ $a.etymology }}</p>
+      <p class="notice"><span class="notice-label">État</span> {{ $r.state | markdownify }}</p>
+      <p class="actions">
+        <a class="btn btn-primary" href="#sommaire">The outline</a>
+        <a class="btn" href="https://github.com/{{ $a.repo }}" rel="noopener">GitHub&nbsp;↗</a>
+      </p>
+    </div>
+    <div class="hero-mark">
+      <img src="{{ "images/fonderie.svg" | relURL }}" alt="Fonderie mark: a crucible pouring into an ingot mould whose cells read as a weight matrix" width="260" height="260">
+    </div>
+  </div>
+</section>
+
+<section class="wrap block" id="sommaire">
+  <h2 class="section-title"><span class="kicker">Sommaire</span>What this site will hold</h2>
+  <ul class="toc">
+    {{ range site.Menus.main }}{{ with .Page }}
+    <li>
+      <a class="card" href="{{ .RelPermalink }}">
+        <h3>{{ .Title }}</h3>
+        <p>{{ .Params.summary }}</p>
+        <ul class="toc-items">{{ range .Params.outline }}<li>{{ .title }}</li>{{ end }}</ul>
+        {{ partial "soon.html" . }}
+      </a>
+    </li>
+    {{ end }}{{ end }}
+  </ul>
+</section>
+
+<section class="wrap block" id="perimetre">
+  <h2 class="section-title"><span class="kicker">Périmètre</span>Intended scope</h2>
+  <div class="prose">
+    <p>What {{ $a.name }} is meant to do. The scope is written before the code, so the code can be held to it; none of it is implemented yet.</p>
+    <ul>{{ range $r.scope }}<li>{{ . | markdownify }}</li>{{ end }}</ul>
+    <h3>Not in scope</h3>
+    <p>{{ $r.out_of_scope | markdownify }}</p>
+  </div>
+</section>
+
+<section class="wrap block" id="jalons">
+  <h2 class="section-title"><span class="kicker">Jalons</span>First milestones</h2>
+  <ol class="milestones">
+    {{ range $i, $m := $r.milestones }}
+    <li>
+      <span class="num" aria-hidden="true">{{ printf "%02d" (add $i 1) }}</span>
+      <p>{{ $m | markdownify }}</p>
+      {{ partial "soon.html" . }}
+    </li>
+    {{ end }}
+  </ol>
+  <p class="more"><a href="{{ "journal/" | relURL }}">The journal →</a></p>
+</section>
+
+<section class="wrap block" id="chaine">
+  <h2 class="section-title"><span class="kicker">La chaîne</span>One of three ateliers</h2>
+  {{ partial "chain.html" . }}
+  <p class="more">Every atelier follows the same rules for records, artefacts and safe loading: <a href="{{ site.Params.fonderie }}methode/">the Fonderie method&nbsp;↗</a></p>
+</section>
+{{ end }}

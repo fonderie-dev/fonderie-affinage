@@ -1,0 +1,15 @@
+{{- /* The three ateliers from data/ateliers.yaml; this site's atelier is marked as current. */ -}}
+<ol class="chain">
+  {{ range $i, $p := hugo.Data.ateliers }}
+  {{ $current := eq $p.slug site.Params.slug }}
+  <li class="chain-step{{ if $current }} is-current{{ end }}">
+    <span class="num" aria-hidden="true">{{ printf "%02d" (add $i 1) }}</span>
+    <a class="card" href="{{ if $current }}{{ "" | relURL }}{{ else }}{{ $p.url }}{{ end }}"{{ if $current }} aria-current="page"{{ end }}>
+      <h3>{{ $p.name }} <span class="gloss">{{ $p.gloss }}</span></h3>
+      <p>{{ $p.summary }}</p>
+      {{ if $current }}<p class="here">This site</p>{{ end }}
+      {{ partial "stamp.html" $p.status }}
+    </a>
+  </li>
+  {{ end }}
+</ol>

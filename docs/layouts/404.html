@@ -1,0 +1,10 @@
+{{ define "main" }}
+<div class="wrap page">
+  <header class="page-head">
+    <p class="eyebrow">404</p>
+    <h1>Nothing was cast here</h1>
+    <p class="lede">This page does not exist. Try the <a href="{{ "" | relURL }}">overview</a> or the <a href="{{ "guide/" | relURL }}">guide</a>.</p>
+  </header>
+  {{ partial "ingot.html" . }}
+</div>
+{{ end }}
