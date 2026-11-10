@@ -76,7 +76,7 @@ Albert-Einstein-Straße 47\
 02977 Hoyerswerda\
 Deutschland
 
-E-Mail: 58561665+r-heller@users.noreply.github.com. Weitere Angaben stehen im
+E-Mail: fonderie.dev@outlook.com. Weitere Angaben stehen im
 [Impressum](../impressum/).
 
 ## Ihre Rechte

@@ -14,7 +14,7 @@ Deutschland
 
 ## Kontakt
 
-E-Mail: 58561665+r-heller@users.noreply.github.com
+E-Mail: fonderie.dev@outlook.com
 
 ## Haftung für Inhalte
 
