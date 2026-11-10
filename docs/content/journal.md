@@ -21,3 +21,6 @@ outline:
 The repository was created. The package installs, its smoke test passes and
 the shared checks run on Python 3.11–3.14. None of the scope is implemented
 yet.
+
+The project site went online the same day as an outline: every section that
+describes functionality is marked coming soon.

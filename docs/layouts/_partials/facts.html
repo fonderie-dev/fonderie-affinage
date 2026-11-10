@@ -6,6 +6,6 @@
     <dt>Repository</dt><dd><a href="https://github.com/{{ $a.repo }}" rel="noopener"><code>{{ $a.repo }}</code></a></dd>
     <dt>Language</dt><dd>Python ≥ 3.11</dd>
     <dt>Licence</dt><dd>Apache-2.0</dd>
-    <dt>Part of</dt><dd><a href="{{ site.Params.fonderie }}">Fonderie</a>, atelier {{ printf "%02d" $a.number }}</dd>
+    <dt>Part of</dt><dd><a href="{{ site.Params.fonderie }}">Fonderie</a>, <a href="{{ site.Params.fonderie }}ateliers/{{ $a.slug }}/">atelier {{ printf "%02d" $a.number }}</a></dd>
   </dl>
 </aside>
