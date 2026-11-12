@@ -1,0 +1,36 @@
+# HTC organ-segmentation U-Net (DKFZ) as a frozen feature extractor with a new head,
+# on HeiPorSPECTRAL organ regions. Needs the htc extra: pip install -e ".[train,htc]"
+# Set the two paths marked EDIT, then: affinage train configs/heiporspectral_htc_head.toml
+#
+# The base model was trained on porcine organ segmentation, and 17 of the 20
+# HeiPorSPECTRAL classes are among its training labels. Read this run as a
+# task-matched reference, not as evidence of general transfer.
+[run]
+name = "heipor-htc-head-P086"
+output_root = "../runs"
+seed = 20261112
+device = "cuda"
+
+[data]
+manifest = "/path/to/admitted_manifest.csv"              # EDIT: intake manifest with cube_path and mask_path
+format = "tivita"
+flip_y = true
+normalisation = "l1"
+test_groups = ["P086"]
+validation_fraction = 0.3
+
+[model]
+base = "htc"
+converted_dir = "/path/to/htc-converted"                 # EDIT: output of affinage convert-htc
+
+[method]
+name = "head"
+
+[training]
+epochs = 200
+batch_size = 4
+learning_rate = 0.001
+weight_decay = 0.01
+warmup_epochs = 5
+augment = false
+class_weighting = "balanced"
