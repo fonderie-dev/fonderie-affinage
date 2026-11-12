@@ -31,6 +31,27 @@ wandb/
 mlruns/
 lightning_logs/
 
+# Tabular and archived data
+*.csv
+*.tsv
+*.xlsx
+*.parquet
+*.npy
+*.npz
+*.dat
+*.zip
+*.tar.gz
+/scratch/
+/export/
+
+# Agent and orchestration files
+CLAUDE.md
+AGENTS.md
+.claude/
+.codex/
+.cursor/
+.mcp.json
+
 # Caches, secrets, OS
 .cache/
 .env
