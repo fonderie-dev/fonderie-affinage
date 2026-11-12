@@ -12,15 +12,20 @@ license = "Apache-2.0"
 license-files = ["LICENSE", "NOTICE"]
 authors = [{ name = "R. Heller" }]
 classifiers = [
-  "Development Status :: 1 - Planning",
+  "Development Status :: 2 - Pre-Alpha",
   "Intended Audience :: Science/Research",
   "Programming Language :: Python :: 3",
   "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
-dependencies = []
+dependencies = ["numpy>=2", "safetensors>=0.5"]
 
 [project.optional-dependencies]
+train = ["torch>=2.6", "pillow>=11"]
+htc = ["segmentation-models-pytorch>=0.5,<0.6"]
 dev = ["pytest>=8", "ruff>=0.15"]
+
+[project.scripts]
+affinage = "fonderie_affinage.cli:main"
 
 [project.urls]
 Documentation = "https://fonderie-dev.github.io/fonderie-affinage/"

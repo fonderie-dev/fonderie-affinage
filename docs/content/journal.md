@@ -16,6 +16,18 @@ outline:
     text: "Persistent identifiers for releases archived as the [status scale](https://fonderie-dev.github.io/website/methode/#status-scale) requires."
 ---
 
+## 12 November 2026 · Draft: hyperspectral region classification
+
+The first three milestones are in place for one task, classifying an annotated
+region of a hyperspectral cube: the run record, a recorded customisation of a
+base model (head only, LoRA or the last blocks) and export with a model card.
+The HyperSIGMA base encoders are converted from their pickle snapshots to
+safetensors under size and checksum pins.
+
+Verified: the test suite runs the whole chain on a tiny model and synthetic
+cubes on CPU, and two runs with the same seed give byte-identical weights.
+Not yet done: a training run on real data.
+
 ## 10 November 2026 · Scaffold
 
 The repository was created. The package installs, its smoke test passes and
