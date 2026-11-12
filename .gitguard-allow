@@ -1,0 +1,3 @@
+# Reviewed exceptions for the git guard: Hugo site parameters, not data.
+docs/data/ateliers.yaml
+docs/data/repo.yaml

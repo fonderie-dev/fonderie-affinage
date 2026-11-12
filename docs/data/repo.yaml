@@ -1,5 +1,5 @@
 # Affinage: status line, scope and milestones. Keep in step with the README.
-state: "Scaffold. The package installs and its smoke test passes; none of the scope below is implemented yet. This site is an outline of what Affinage will document, and every detailed section is marked *coming soon*."
+state: "Draft. The run record, hyperspectral data handling, conversion of the HyperSIGMA base encoders to safetensors, three customisation methods and export with a model card work and are tested on synthetic data. No model trained on real data has been produced or released. This site is still an outline; detailed sections stay marked *coming soon* until they are written."
 scope:
   - "Configuration-driven training and fine-tuning runs of open-weight models, full and parameter-efficient (for example LoRA), from a base model pinned to a commit hash."
   - "Data preparation with a manifest and checksums, and a recorded split that [Essai](https://fonderie-dev.github.io/fonderie-essai/) can check for train–test overlap."
