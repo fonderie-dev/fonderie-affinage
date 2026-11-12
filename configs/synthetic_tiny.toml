@@ -1,0 +1,28 @@
+# Dry run on synthetic cubes with the tiny model. Runs on CPU in seconds.
+#   affinage synthetic scratch/synthetic
+#   affinage train configs/synthetic_tiny.toml
+[run]
+name = "synthetic-tiny-lora"
+output_root = "../runs"
+seed = 7
+device = "cpu"
+
+[data]
+manifest = "../scratch/synthetic/manifest.csv"
+format = "npy"
+test_groups = ["G05"]
+validation_fraction = 0.4
+
+[model]
+base = "tiny"
+
+[method]
+name = "lora"
+lora_rank = 4
+lora_alpha = 8.0
+last_blocks = 2
+
+[training]
+epochs = 12
+batch_size = 6
+learning_rate = 0.01

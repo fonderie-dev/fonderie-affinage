@@ -1,0 +1,38 @@
+# HyperSIGMA ViT-B encoders customised on HeiPorSPECTRAL organ regions with LoRA.
+# Set the three paths marked EDIT, then: affinage train configs/heiporspectral_hypersigma_lora.toml
+#
+# Data: HeiPorSPECTRAL (Studier-Fischer et al., Sci Data 2023, doi:10.1038/s41597-023-02315-8),
+# CC BY 4.0. One held-out pig per run; repeat with another test_groups entry for the next fold.
+[run]
+name = "heipor-hypersigma-lora-P086"
+output_root = "../runs"                                  # EDIT if runs should live elsewhere
+seed = 20261112
+device = "cuda"
+amp = false
+
+[data]
+manifest = "/path/to/admitted_manifest.csv"              # EDIT: intake manifest with cube_path and mask_path
+format = "tivita"
+flip_y = true
+normalisation = "none"
+test_groups = ["P086"]
+validation_fraction = 0.3
+
+[model]
+base = "hypersigma"
+converted_dir = "/path/to/hypersigma-converted"          # EDIT: output of affinage convert-hypersigma
+
+[method]
+name = "lora"
+lora_rank = 8
+lora_alpha = 16.0
+last_blocks = 4
+
+[training]
+epochs = 40
+batch_size = 16
+learning_rate = 0.001
+weight_decay = 0.01
+warmup_epochs = 3
+augment = true
+class_weighting = "balanced"
